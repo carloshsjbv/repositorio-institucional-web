@@ -1,0 +1,66 @@
+<div class="container">
+
+  <div class="card-panel">
+
+    <h4 class="header2">Cadastro de submissões</h4>
+
+    <div class="validacoes">
+      <div id="formValidations" class="card-panel red lighten-1" [hidden]="!show">
+        <span></span>
+      </div>
+      <div id="sucess" class="card-panel blue lighten-1" [hidden]="!show">
+        <span></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" enctype="multipart/form-data">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" name="titulo" id="titulo" class="validate" required="required" ngModel>
+            <label for="titulo">Título da publicação</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea name="abstract" class="materialize-textarea validate" id="abstract" cols="20" rows="30" required="required"
+              ngModel></textarea>
+            <label for="abstract">Abstract</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="abstract" style="position: unset">Palavras-chave (Enter para adicionar)</label>
+            <div class="chips chips-placeholder validate" id="keywords" required="required">
+              <input name="keywords" ngModel>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>Arquivo</span>
+              <input type="file" name="arquivo" (change)="arquivoSeleciondado($event)" ngModel>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="right-align">
+            <button class="btn btn-right  orange lighten-1" type="submit">Salvar
+              <i class="material-icons right">save</i>
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

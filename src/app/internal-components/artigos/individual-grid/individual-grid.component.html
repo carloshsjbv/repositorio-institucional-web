@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="card-panel">
+      <div class="card-header">
+        <div class="row">
+          <h5>{{submissao.aluno.turma.curso.nome}} | {{submissao.aluno.turma.anoInicial}}</h5>
+        </div>
+        <div class="row">
+          <h5 style="font-weight: bolder">{{submissao.titulo}}</h5>
+        </div>
+        <div class="row">
+          <h6><i class="material-icons amber lighten-2">person</i> {{submissao.aluno.nome}}</h6>
+        </div>
+      </div>
+      <div class="row">
+        <h5 style="font-weight: bold">Resumo</h5>
+        <p class="flow-text">{{submissao.resumo}}</p>
+      </div>
+      <div class="row">
+        <h5 style="font-weight: bold">Palavras-Chave:</h5>
+        <p class="flow-text">{{submissao.palavrasChave}}</p>
+      </div>
+    </div>
+  </div>
+</div>

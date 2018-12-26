@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="card-panel">
+
+    <h4 class="header2">Cadastro de cursos</h4>
+
+    <div class="validacoes">
+      <div id="formValidations" class="card-panel red lighten-1" [hidden]="!show">
+        <span></span>
+      </div>
+      <div id="sucess" class="card-panel blue lighten-1" [hidden]="!show">
+        <span></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <form class="col s12" id="form" #formCadstro="ngForm" (ngSubmit)="onSubmit(formCadstro)">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="nome">Nome do Curso</label><br>
+            <input id="nome" name="nome" type="text" class="validate" required="required" ngModel>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="acronimo">Acronimo</label><br>
+            <input id="acronimo" maxlength="2" name="acronimo" type="text" class="validate" required="required" style="text-transform:uppercase"
+              ngModel>
+          </div>
+        </div>
+
+        <div class="row">
+          <label>Área</label>
+          <select class="browser-default validate" required="required" name="area" ngModel>
+            <option value="" disabled selected>Selecione a área</option>
+            <option value="TI">Tecnologia</option>
+            <option value="SA">Saúde</option>
+            <option value="HU">Humanas</option>
+            <option value="EX">Exatas</option>
+          </select>
+        </div>
+
+        <div class="right-align">
+          <button class="btn btn-right  orange lighten-1" type="submit">Salvar
+            <i class="material-icons right">save</i>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

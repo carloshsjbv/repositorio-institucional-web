@@ -1,0 +1,47 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="row">
+      <h4>Publicações {{nomeCurso == null ? 'gerais': nomeCurso}} </h4>
+    </div>
+
+    <div class="row" *ngIf="artigos != ''">
+      <div *ngFor="let artigo of artigos">
+
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <strong><a href="artigos/{{artigo.aluno.turma.curso.acronimo}}/{{artigo.aluno.turma.anoInicial}}/{{artigo.id}}">Título: {{artigo.titulo}}</a></strong>
+            </div>
+            <div class="row">
+              <p>Autores: {{artigo.aluno.nome}}</p>
+            </div>
+            <div class="row">
+              <p>Palavras-chave: {{artigo.palavrasChave}}</p>
+            </div>
+          </div>
+          <div class="card-action">
+            <a *ngIf="artigo.pathDocumentoOriginal != null" [href]="artigo.pathDocumentoOriginal | safe : 'resourceUrl'">
+              <img width="20" height="20" src="../../assets/images/pdf.png" target="_blank" alt="PDF" /> Original</a>
+            <a *ngIf="artigo.pathEpub != null" [href]="artigo.pathEpub | safe : 'resourceUrl'">
+              <img width="20" height="20" src="../../assets/images/epub.png" target="_blank" alt="EPUB" /> EPUB</a>
+            <a *ngIf="artigo.pathPDF != null" [href]="artigo.pathPDF | safe : 'resourceUrl'">
+              <img width="20" height="20" src="../../assets/images/pdf.png" target="_blank" alt="HTML" /> PDF</a>
+            <a *ngIf="artigo.pathHTML != null" [href]="artigo.pathHTML | safe : 'resourceUrl'">
+              <img width="20" height="20" src="../../assets/images/epub.png" target="_blank" alt="EPUB" /> EPUB</a>
+            <a *ngIf="artigo.pathXML != null" [href]="artigo.pathXML | safe : 'resourceUrl'">
+              <img width="20" height="20" src="../../assets/images/xml.png" target="_blank" alt="XML" /> XML</a>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row" *ngIf="artigos == null || artigos == ''">
+      Não existem artigos cadastrados
+    </div>
+
+  </div>
+
+</div>

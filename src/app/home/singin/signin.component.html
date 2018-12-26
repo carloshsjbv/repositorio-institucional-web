@@ -1,0 +1,48 @@
+<div class="section"></div>
+<div class="section"></div>
+
+<div class="container blue-grey lighten-4" style="padding: 20px;padding-bottom: 5em;border: 1px solid #EEE;">
+
+  <div class="card-panel amber lighten-2">
+    <i class="material-icons dp48">account_circle</i>
+    <span style="padding-left:5%">LOGIN</span>
+  </div>
+
+  <div class="section"></div>
+
+  <div class="validacoes">
+    <div id="formValidations" class="card-panel red lighten-1" [hidden]="!show">
+      <span></span>
+    </div>
+    <div id="sucess" class="card-panel blue lighten-1" [hidden]="!show">
+      <span></span>
+    </div>
+  </div>
+
+  <!-- [formGroup] = Associa o formulário inteiro com o componente -->
+  <form [formGroup]="loginForm" (submit)="login()">
+    <div class="input-field">
+      <!-- formControlName relaciona o input com o componente -->
+      <input #emailInput formControlName="userName" id="email_inline blue" type="email">
+      <label for="email_inline">Email</label>
+      <span class="helper-text" data-error="incorreto" data-success="correto"></span>
+      <vmessage text="Email obrigatório" *ngIf="loginForm.get('userName').errors?.required"></vmessage>
+      <!-- <small class="red-text" *ngIf="loginForm.get('userName').errors?.required">Email obrigatório</small> -->
+    </div>
+
+    <div class="input-field">
+      <input formControlName="password" id="password" type="password" class="validate">
+      <label for="password">Password</label>
+      <vmessage text="Senha obrigatória" *ngIf="loginForm.get('password').errors?.required"></vmessage>
+      <!-- <small class="red-text" *ngIf="loginForm.get('password').errors?.required">Senha obrigatória</small> -->
+    </div>
+
+    <button [disabled]="loginForm.invalid" class="waves- orange lighten-1 btn-large right">LOGIN</button>
+    <span class="left" style="padding-top:2%"><a href="cadastro/aluno">Me cadastrar</a></span>
+
+
+  </form>
+</div>
+
+<div class="section"></div>
+<div class="section"></div>

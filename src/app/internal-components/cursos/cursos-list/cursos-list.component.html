@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div class="validacoes">
+    <div id="formValidations" class="card-panel red lighten-1" [hidden]="!show">
+      <span></span>
+    </div>
+    <div id="sucess" class="card-panel blue lighten-1" [hidden]="!show">
+      <span></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4>Publicações por curso</h4>
+    <table *ngIf="cursos.length > 0">
+      <thead>
+        <tr>
+          <th>Curso</th>
+          <th>Area</th>
+          <th>Acrônimo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let curso of cursos">
+          <td><a href="/cursos/{{curso.acronimo.toLowerCase()}}">{{curso.nome}}</a></td>
+          <td>{{curso.area}}</td>
+          <td>{{curso.acronimo}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row" *ngIf="cursos.length == 0">
+      Não existem cursos cadastrados
+    </div>
+    <div class="section"></div>
+    <div class="right ">
+      <a class="btn-floating btn-medium orange lighten-1" href="cursos/cadastro"><i class="material-icons">add</i></a>
+    </div>
+
+  </div>
+
+</div>

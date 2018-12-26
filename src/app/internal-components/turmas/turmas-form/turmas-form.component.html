@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div class="validacoes">
+    <div id="formValidations" class="card-panel red lighten-1" [hidden]="!show">
+      <span></span>
+    </div>
+    <div id="sucess" class="card-panel blue lighten-1" [hidden]="!show">
+      <span></span>
+    </div>
+  </div>
+
+  <div class="card-panel">
+
+    <h4 class="header2">Cadastro de turmas</h4>
+
+    <div class="row">
+      <form class="col s12" id="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="nome">Ano Inicial</label><br>
+            <input id="anoInicial" name="anoInicial" type="date" required="required" ngModel>
+          </div>
+          <!--class="datepicker" type="date-->
+        </div>
+
+        <div id="anoInicialValidation" class="card-panel red lighten-1" [hidden]="!show">
+          <span></span>
+        </div>
+
+        <div class="row">
+          <label>Curso</label>
+          <select class="browser-default" name="curso" ngModel>
+            <option value="">Selecione o curso</option>
+            <option [value]="curso.id" *ngFor="let curso of cursos">{{curso.nome}}</option>
+          </select>
+        </div>
+
+        <div class="right-align">
+          <button class="btn btn-right  orange lighten-1" type="submit">Salvar
+            <i class="material-icons right">save</i>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

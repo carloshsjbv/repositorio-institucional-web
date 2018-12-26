@@ -1,0 +1,11 @@
+<div class="container" *ngIf="turmas.length > 0">
+  <h4>Publicações do curso</h4>
+  <div class="row">
+    <div class="col s2 center-align gray darken-5" style="padding: 5px" *ngFor="let turma of turmas"><a href="/artigos">{{turma.anoInicial}}</a></div>
+  </div>
+</div>
+<div class="container" id="noPublications" *ngIf="turmas.length == 0">
+  <div class="row panel">
+    <h3>Este curso ainda não possui publicações</h3>
+  </div>
+</div>

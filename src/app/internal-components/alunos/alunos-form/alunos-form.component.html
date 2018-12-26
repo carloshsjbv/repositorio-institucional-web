@@ -1,0 +1,78 @@
+<div class="container">
+  
+  <div class="validacoes">
+    <div id="formValidations" class="card-panel red lighten-1" [hidden]="!show">
+      <span></span>
+    </div>
+    <div id="sucess" class="card-panel blue lighten-1" [hidden]="!show">
+      <span></span>
+    </div>
+  </div>
+
+
+  <div class="card-panel">
+
+    <h4 class="header2">Cadastro de alunos</h4>
+
+    <div class="row">
+      <form [formGroup]="alunoForm" (submit)="onSubmit()">
+
+        <div class="row">
+          <div class="input-field col s8">
+            <input type="text" formControlName="nome" id="nome" class="validate" required="required">
+            <vmessage text="Nome obrigatório" *ngIf="alunoForm.get('nome').errors?.required"></vmessage>
+            <label for="nome">Nome</label>
+          </div>
+
+          <div class="input-field col s4">
+            <input type="number" pattern="\d*" min="111111" max="999999" formControlName="ra" id="ra" class="validate"
+              required="required">
+            <vmessage text="RA obrigatório" *ngIf="alunoForm.get('ra').errors?.required"></vmessage>
+            <label for="ra">RA</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="email" formControlName="email" id="email" class="validate" required="required">
+            <vmessage text="E-mail obrigatório" *ngIf="alunoForm.get('email').errors?.required"></vmessage>
+            <label for="email">E-mail</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="password" formControlName="senha" id="senha" class="validate" required="required">
+            <vmessage text="Senha obrigatório" *ngIf="alunoForm.get('senha').errors?.required"></vmessage>
+            <label for="senha">Senha</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <label>Curso</label>
+          <select class="browser-default" formControlName="curso" required="required" (change)="listaTurmas($event)">
+            <option value="" disabled selected>Selecione o curso</option>
+            <option *ngFor="let curso of cursos" value="{{curso.id}}">{{curso.id}} -
+              [{{curso.nome}}]</option>
+          </select>
+        </div>
+        <div class="row">
+          <label>Turma</label>
+          <select class="browser-default" formControlName="turma" required="required">
+            <option value="" disabled selected>Selecione a turma</option>
+            <option *ngFor="let turma of turmas" value="{{turma?.id}}">{{turma?.id}} -
+              Ano Inicial: {{turma?.anoInicial}}</option>
+          </select>
+          <small class="red-text" [hidden]="message"><a href="turmas/cadastro">Este curso ainda não possui turmas</a></small>
+        </div>
+        <div class="row">
+          <div class="right-align">
+            <button class="btn btn-right  orange lighten-1" type="submit">Salvar
+              <i class="material-icons right">save</i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

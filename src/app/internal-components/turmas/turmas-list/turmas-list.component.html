@@ -1,0 +1,33 @@
+<div class="container">
+
+  <div class="row">
+    <h4>Turmas</h4>
+    <table *ngIf="turmas.length > 0">
+      <thead>
+        <tr>
+          <th>Ano Inicial</th>
+          <th>Curso</th>
+          <th>Acrônimo</th>
+          <th>Area</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let turma of turmas">
+          <td>{{turma.anoInicial}}</td>
+          <td>{{turma.curso.nome}}</td>
+          <td>{{turma.curso.acronimo}}</td>
+          <td>{{turma.curso.area}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row" *ngIf="turmas.length == 0">
+      Não existem turmas cadastradas
+    </div>
+    <div class="section"></div>
+    <div class="right-align">
+      <a class="btn-floating btn-medium orange lighten-1" href="turmas/cadastro"><i class="material-icons">add</i></a>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,32 @@
+<header>
+
+    <nav>
+        <div class="nav-wrapper blue-grey darken-3">
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="/artigos">Artigos</a></li>
+                <li><a href="/cursos">Cursos</a></li>
+                <li><a href="/submissoes/cadastro">Submeter artigo</a></li>
+                <li><a [href]="user ? '/' : '/login'">{{user ? 'Sair' : 'Login'}}</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav blue-grey lighten-3" id="mobile-demo">
+        <li class="blue-grey">
+            <a href="#!"><img src="../../../assets/images/library-icon.png"></a>
+            <a href="#name"><span class="white-text name">{{user?.sub}}</span></a>
+            <a href="#email"><span class="white-text email">{{user?.sub}}</span></a>
+            <div class="center white-text">MENU</div>
+        </li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a href="/artigos">Artigos</a></li>
+        <li><a href="/cursos">Cursos</a></li>
+        <li><a href="/submissoes/cadastro">Submeter artigo</a></li>
+        <li><a [href]="user ? '/' : '/login'">{{user ? 'Sair' : 'Login'}}</a></li>
+    </ul>
+
+</header>
